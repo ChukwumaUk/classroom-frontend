@@ -25,8 +25,7 @@ const SubjectsList = () => {
     {field: 'name', operator: 'contains' as const, value: searchQuery}
   ]: [];
 
-  const subjectTable = useTable<Subject>({
-    columns: useMemo<ColumnDef<Subject>[]>(() => [
+  const subjectTable = useTable<Subject>({columns: useMemo<ColumnDef<Subject>[]>(() => [
       {
         id: 'code',
         accessorKey: 'code',
@@ -45,7 +44,7 @@ const SubjectsList = () => {
       },
       {
         id: 'department',
-        accessorKey: 'department',
+        accessorKey: 'department.name',
         size: 150,
         header: () => <p className='column-title'>Department</p>,
         cell: ({ getValue }) => <Badge
