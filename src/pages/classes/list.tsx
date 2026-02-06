@@ -150,7 +150,7 @@ const ClassesList = () => {
                         <Select
                             value={selectedSubject} onValueChange={setSelectedSubject}
                         >
-                            <SelectTrigger className="w-[180px]">
+                            <SelectTrigger className="w-45">
                                 <SelectValue placeholder="Filter by subject" />
                             </SelectTrigger>
 
@@ -169,7 +169,7 @@ const ClassesList = () => {
                         <Select
                             value={selectedTeacher} onValueChange={setSelectedTeacher}
                         >
-                            <SelectTrigger className="w-[180px]">
+                            <SelectTrigger className="w-45">
                                 <SelectValue placeholder="Filter by teacher" />
                             </SelectTrigger>
 

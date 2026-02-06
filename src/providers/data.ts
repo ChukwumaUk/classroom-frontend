@@ -1,5 +1,6 @@
 import { BACKEND_BASE_URL } from "@/constants";
 import { CreateResponse, GetOneResponse, ListResponse } from "@/types";
+import { HttpError } from "@refinedev/core";
 import { createDataProvider, CreateDataProviderOptions } from "@refinedev/rest";
 
 if(!BACKEND_BASE_URL)
