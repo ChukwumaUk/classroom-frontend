@@ -8,6 +8,10 @@ import { compass } from "@cloudinary/url-gen/qualifiers/gravity";
 import { text } from "@cloudinary/url-gen/qualifiers/source";
 import { TextStyle } from '@cloudinary/url-gen/qualifiers/textStyle'
 
+if (!CLOUDINARY_CLOUD_NAME) {
+  throw new Error('CLOUDINARY_CLOUD_NAME is not configured. Please set VITE_CLOUDINARY_CLOUD_NAME in your .env file.');
+}
+
 const cld = new Cloudinary({
     cloud: { cloudName: CLOUDINARY_CLOUD_NAME }
 });

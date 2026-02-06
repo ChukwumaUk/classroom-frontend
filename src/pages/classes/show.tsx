@@ -12,10 +12,10 @@ import { bannerPhoto } from '@/lib/cloudinary';
 const Show = () => {
     const { query } = useShow<ClassDetails>({ resource: 'classes' });
 
-    const ClassDetails = query.data?.data;
+    const classDetails = query.data?.data;
     const { isLoading, isError } = query;
 
-    if(isLoading || isError || !ClassDetails) {
+    if(isLoading || isError || !classDetails) {
         return (
             
             <ShowView className='class-view class-show'>
@@ -32,7 +32,7 @@ const Show = () => {
         )
     }
 
-    const teacherName = ClassDetails.teacher?.name ?? 'Unknown';
+    const teacherName = classDetails.teacher?.name ?? 'Unknown';
 
     const teachersInitials = 
         teacherName
@@ -51,14 +51,14 @@ const Show = () => {
         subject, 
         teacher, 
         department
-    } = ClassDetails;
+    } = classDetails;
 
   return (
     <ShowView className='class-view class-show'>
         <ShowViewHeader resource='classes' title='Class Details' />
 
         <div className='banner'>
-            {bannerUrl ? (
+            {bannerUrl && bannerCldPubId ? (
                 <AdvancedImage alt="Class Banner" cldImg={bannerPhoto(bannerCldPubId ?? '', name)} />
             )
                 : <div className='placeholder' />
@@ -110,8 +110,8 @@ const Show = () => {
 
                 <div>
                     <Badge variant="outline">Code: {subject?.code}</Badge>
-                    <p>{department?.name}</p>
-                    <p>{department?.description}</p>
+                    <p>{subject?.name}</p>
+                    <p>{subject?.description}</p>
                 </div>
             </div>
 
